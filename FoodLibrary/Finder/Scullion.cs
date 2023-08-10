@@ -49,6 +49,10 @@ namespace FoodLibrary.Finder
             {
                 return Recipes[4];
             }
+            if(ingredient == "Salmón")
+            {
+                return Recipes[5];
+            }
             return Recipes[3];
         }
     }
