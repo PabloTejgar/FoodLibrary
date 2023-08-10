@@ -6,9 +6,9 @@
         {
         }
 
-        public string Suggest(string ingredient)
+        public List<string> Suggest(string ingredient)
         {
-            return "Alcachofas Fritas";
+            return new List<string> { "Alcachofas Fritas" };
         }
     }
 }
