@@ -15,18 +15,31 @@ namespace FoodLibrary.Finder
         public Scullion()
         {
             Recipes = new List<Recipe>();
-            Recipes.Add(new Recipe { Name = "Huevo frito con patatas fritas", 
-                                     Ingredients = new List<string> { "Aceite", "Huevo", "Patata" } });
-            Recipes.Add(new Recipe { Name = "Patatas fritas", 
-                                     Ingredients = new List<string> { "Aceite", "Patata" } });
-            Recipes.Add(new Recipe { Name = "Huevos fritos", 
-                                     Ingredients = new List<string> { "Aceite", "Merluza" } });
-            Recipes.Add(new Recipe { Name = "Merluza con patatas fritas", 
-                                     Ingredients = new List<string> { "Merluza", "Patata", "Aceite" } });
+            Recipes.Add(new Recipe { 
+                Name = "Huevo frito con patatas fritas", 
+                Ingredients = new List<string> { "Aceite", "Huevo", "Patata" } 
+            });
+            Recipes.Add(new Recipe { 
+                Name = "Patatas fritas", 
+                Ingredients = new List<string> { "Aceite", "Patata" } 
+            });
+            Recipes.Add(new Recipe { 
+                Name = "Huevos fritos", 
+                Ingredients = new List<string> { "Aceite", "Merluza" } 
+            });
+            Recipes.Add(new Recipe { 
+                Name = "Merluza con patatas fritas", 
+                Ingredients = new List<string> { "Merluza", "Patata", "Aceite" } 
+            });
             Recipes.Add(new Recipe
             {
                 Name = "Almendras garrapiñadas",
                 Ingredients = new List<string> { "Almendra", "Azucar" }
+            });
+            Recipes.Add(new Recipe
+            {
+                Name = "Salmón con verduras",
+                Ingredients = new List<string> { "Salmón", "Verduras", "Aceite" }
             });
         }
 

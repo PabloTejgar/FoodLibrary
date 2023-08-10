@@ -21,5 +21,13 @@ namespace FoodLibrary.Test
             Assert.That(result.Name, Is.EqualTo("Almendras garrapiñadas"));
         }
 
+        public void WhenYouProvideSalmonThenEveryProductWithSalmonIsReturn()
+        {
+            var scullion = new Scullion();
+            var result = scullion.GetRecipes("Salmón");
+            Assert.That(result.Name, Is.EqualTo("Salmón con verduras"));
+        }
+
+
     }
 }
