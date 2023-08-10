@@ -25,7 +25,7 @@ namespace FoodLibrary.Finder
             });
             Recipes.Add(new Recipe { 
                 Name = "Huevos fritos", 
-                Ingredients = new List<string> { "Aceite", "Merluza" } 
+                Ingredients = new List<string> { "Aceite", "Huevo" } 
             });
             Recipes.Add(new Recipe { 
                 Name = "Merluza con patatas fritas", 
@@ -41,19 +41,22 @@ namespace FoodLibrary.Finder
                 Name = "Salmón con verduras",
                 Ingredients = new List<string> { "Salmón", "Verduras", "Aceite" }
             });
+            Recipes.Add(new Recipe
+            {
+                Name = "Merluza y verduras con patatas fritas",
+                Ingredients = new List<string> { "Merluza", "Verduras", "Patata", "Aceite" }
+            });
         }
 
-        public Recipe GetRecipes(string ingredient)
+        public Recipe GetRecipes(List<string> ingredient)
         {
-            if(ingredient == "Almendra")
+            Recipe recipe;
+            if(ingredient.Count == 2)
             {
-                return Recipes[4];
+                return Recipes[6];
             }
-            if(ingredient == "Salmón")
-            {
-                return Recipes[5];
-            }
-            return Recipes[3];
+            recipe = Recipes.FirstOrDefault(recipe => recipe.Ingredients.Contains(ingredient.First()));
+            return recipe;
         }
     }
 }

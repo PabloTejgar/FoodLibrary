@@ -5,29 +5,24 @@ namespace FoodLibrary.Test
 {
     public class ScullionTest
     {
-        [Test]
-
-        public void WhenYouProvideHakeThenEveryProductWithHakeIsReturn()
+        [TestCase("Merluza", "Merluza con patatas fritas")]
+        [TestCase("Salmón", "Salmón con verduras")]
+        [TestCase("Almendra", "Almendras garrapiñadas")]
+        public void WhenYouProvideIngredientThenEveryProductWithThatIngredientIsReturn(string ingredient, string expected)
         {
             var scullion = new Scullion();
-            var result = scullion.GetRecipes("Merluza");
-            Assert.That(result.Name, Is.EqualTo("Merluza con patatas fritas"));
+            var result = scullion.GetRecipes(new List<string>{ ingredient});
+            Assert.That(result.Name, Is.EqualTo(expected));
         }
 
-        public void WhenYouProvideAlmondThenEveryProductWithAlmondIsReturn()
+        [TestCase("Merluza", "Verduras", "Merluza y verduras con patatas fritas")]
+        [TestCase("Salmón", "Verduras", "Salmón con verduras")]
+        // [TestCase("Almendra", "Almendras garrapiñadas")]
+        public void WhenYouProvideTwoIngredientThenEveryProductWithThoseTwoIngredientIsReturn(string ingredient, string ingredient2, string expected)
         {
             var scullion = new Scullion();
-            var result = scullion.GetRecipes("Almendra");
-            Assert.That(result.Name, Is.EqualTo("Almendras garrapiñadas"));
+            var result = scullion.GetRecipes(new List<string> { ingredient, ingredient2 });
+            Assert.That(result.Name, Is.EqualTo(expected));
         }
-
-        public void WhenYouProvideSalmonThenEveryProductWithSalmonIsReturn()
-        {
-            var scullion = new Scullion();
-            var result = scullion.GetRecipes("Salmón");
-            Assert.That(result.Name, Is.EqualTo("Salmón con verduras"));
-        }
-
-
     }
 }
