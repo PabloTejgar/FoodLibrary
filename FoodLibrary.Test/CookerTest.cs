@@ -41,7 +41,6 @@ namespace FoodLibrary.Test
         {
             var result = Cooker.Cook(new List<string> { ingredient, ingredient2, "Aceite" });
             Assert.That(result, Is.EqualTo(expected));
-
         }
 
     }
