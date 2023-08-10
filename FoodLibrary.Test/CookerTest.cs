@@ -43,5 +43,13 @@ namespace FoodLibrary.Test
             Assert.That(result, Is.EqualTo(expected));
         }
 
+
+        [TestCase("Aceite", "Huevo", "Patata", "Huevo frito con patatas fritas")]
+        public void ReturnARecipeWithThatIngredients(string ingredient, string ingredient2, string ingredient3, string expected)
+        {
+            var ingredients = new List<string> { ingredient, ingredient2, ingredient3 };
+            var result = Cooker.Cook2(ingredients);
+            Assert.That(result, Is.EqualTo(expected));
+        }
     }
 }
