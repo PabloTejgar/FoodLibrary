@@ -11,8 +11,20 @@ namespace FoodLibrary.Test
         public void WhenYouProvideIngredientThenEveryProductWithThatIngredientIsReturn(string ingredient, string expected)
         {
             var scullion = new Scullion();
-            var result = scullion.GetRecipes(new List<string>{ ingredient});
-            Assert.That(result.Name, Is.EqualTo(expected));
+            var result = scullion.GetRecipes(new List<string> { ingredient });
+            Assert.That(result.First().Name, Is.EqualTo(expected));
+        }
+
+        [Test]
+        public void WhenYouProvideAnIngredientThenAListOfRecipesWithThatIngredientAreReturn()
+        {
+            var scullion = new Scullion();
+
+            string ingredient = "Verduras";
+            List<string> expected = new List<string> { "Salmón con verduras", "Merluza y verduras con patatas fritas" };
+            var recipes = scullion.GetRecipes(new List<string> { ingredient});
+            var result = recipes.Select(recipe => recipe.Name);
+            Assert.That(result, Is.EqualTo(expected));
         }
 
         [TestCase("Merluza", "Verduras", "Merluza y verduras con patatas fritas")]
@@ -22,7 +34,7 @@ namespace FoodLibrary.Test
         {
             var scullion = new Scullion();
             var result = scullion.GetRecipes(new List<string> { ingredient, ingredient2 });
-            Assert.That(result.Name, Is.EqualTo(expected));
+            Assert.That(result.First().Name, Is.EqualTo(expected));
         }
     }
 }

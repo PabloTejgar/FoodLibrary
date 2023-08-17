@@ -48,14 +48,15 @@ namespace FoodLibrary.Finder
             });
         }
 
-        public Recipe GetRecipes(List<string> ingredient)
+        public List<Recipe> GetRecipes(List<string> ingredients)
         {
-            Recipe recipe;
-            if(ingredient.Count == 2)
+            List<Recipe> recipe = Recipes;
+
+            foreach(var ingredient in ingredients)
             {
-                return Recipes[6];
+                recipe = recipe.Where(recipe => recipe.Ingredients.Contains(ingredient)).ToList();
             }
-            recipe = Recipes.FirstOrDefault(recipe => recipe.Ingredients.Contains(ingredient.First()));
+
             return recipe;
         }
     }
